@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Menu from './Menu'
+import Item from './Item'
 import hamburger from "./images/hamburger-white.png";
 
 let api = "https://fishbase.ropensci.org/"
@@ -13,6 +14,7 @@ class App extends Component {
     this.state = {
       species: []
       , menuOpen: false 
+      , onDisplay: null
     }
   }
 
@@ -35,6 +37,12 @@ class App extends Component {
     })
   }
 
+  displaySpecies = (id) => {
+    this.setState({
+      onDisplay: id
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -43,8 +51,11 @@ class App extends Component {
           <img className="hamburger" src={hamburger} alt="menu icon" onClick={this.toggleMenu} />
         </header>
         {this.state.menuOpen ? 
-        <Menu species={this.state.species} />
+        <Menu species={this.state.species} callBack={this.displaySpecies} />
         :null}
+       {/*  {this.state.onDisplay!==null ?
+        <Item id={this.species.onDisplay} />
+        :null} */}
       </div>
     );
   }

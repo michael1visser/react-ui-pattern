@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Menu.css'
 
-export default function Menu(props) {
+ function Menu(props) {
 
     let species = props.species.map(val =>{
         return (
@@ -12,13 +12,40 @@ export default function Menu(props) {
         )
     })
 
-    console.log(species)
+ /* class Menu extends Component {
+     constructor(props){
+         super(props)
+         this.state = {
+             currentId: null
+             , species: this.props.species.map(val =>{
+                return (
+                    {
+                        species: val.Species
+                        , id: val.SpecCode
+                    }
+                )
+            })
+         }
+     } */
 
+ 
+
+    //console.log(species)
+
+    let sendID = (e) => {
+        //console.log(e.target.id)
+    //this.state.currentId = e.target.id
+    props.callBack(e.target.id)
+    }
+    //render(){
     return (
         <div className="Menu">
             <ul className="menu-list">
-                {species.map((val, idx) => <li key={idx}>{val.species}</li>)}
+                {species.map((val, idx) => <li key={idx} onClick={sendID} id={val.id}>{val.species}</li>)}
             </ul>
         </div>
     )
+   // }
 }
+
+export default Menu
