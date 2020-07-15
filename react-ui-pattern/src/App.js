@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       species: []
       , menuOpen: false 
-      , onDisplay: null
+      , onDisplay: 64588
     }
   }
 
@@ -44,6 +44,16 @@ class App extends Component {
   }
 
   render() {
+    let species = this.state.species.map(val =>{
+      return (
+          {
+              species: val.Species
+              , id: val.SpecCode
+              
+          }
+      )
+  })
+
     return (
       <div className="App">
         <header className="App-header">
@@ -53,9 +63,9 @@ class App extends Component {
         {this.state.menuOpen ? 
         <Menu species={this.state.species} callBack={this.displaySpecies} />
         :null}
-       {/*  {this.state.onDisplay!==null ?
-        <Item id={this.species.onDisplay} />
-        :null} */}
+        {this.state.onDisplay!==null ?
+        <Item id={this.state.onDisplay} api={api}/>
+        :null}
       </div>
     );
   }
@@ -63,6 +73,7 @@ class App extends Component {
   componentDidMount(){
     this.fetchSpecies()
   }
+  
 }
 
 export default App;
