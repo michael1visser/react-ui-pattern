@@ -1,0 +1,16 @@
+.Menu {
+    margin-top: 0;
+    float: right;
+    max-width: 40%;
+    background-color: #282c34;
+    color: #ffffff;
+}
+
+.menu-list {
+    font-size: 30px;
+    margin-block-end: 5%;
+    margin-inline-end: 25%;
+    padding-inline-end: 25%;
+    padding-inline-start: 5%;
+    list-style-type: none;
+}

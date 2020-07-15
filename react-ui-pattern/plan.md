@@ -19,10 +19,11 @@ Ui Hamburger menu
 
   ## Variables
 
-  App - Array of item names and IDs - pushed to Menu as props.
+  App 
+  - API endpoint
+  - Array of item names and IDs - pushed to Menu as props.
 
   ## Functions
 
   App - onClick for hamburger icon to display menu
 
-  
