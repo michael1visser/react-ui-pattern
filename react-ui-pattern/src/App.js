@@ -2,7 +2,8 @@ import React, { Component, isValidElement } from "react";
 import "./App.css";
 import Menu from './Menu'
 import Item from './Item'
-import hamburger from "./images/hamburger-white.png";
+import hamburger from "./images/hamburger-white.png"
+import { Transition } from 'react-transition-group'
 
 let api = "https://fishbase.ropensci.org/"
 
@@ -68,7 +69,7 @@ class App extends Component {
         <div className="content">
           {this.state.onDisplay!==null ?
           <Item species={this.state.onDisplay.species} id={this.state.onDisplay.id} aquarium={this.state.onDisplay.aquarium} dangerous={this.state.onDisplay.dangerous} comments={this.state.onDisplay.comments} genus={this.state.onDisplay.genus} subFamily={this.state.onDisplay.subFamily} image={this.state.onDisplay.image}/>
-          :null}
+          :<h1>Click on the Hamburger menu and select a fish to see its details.</h1>}
         </div>
       </div>
     );

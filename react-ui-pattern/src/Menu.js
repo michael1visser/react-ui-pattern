@@ -19,6 +19,10 @@ import './Menu.css'
         )
     })
 
+    let onClick = (e) =>{
+        sendID(e)
+        props.toggle()
+    }
 
     let sendID = (e) => {
         let index = e.target.id
@@ -28,7 +32,7 @@ import './Menu.css'
         <div className="Menu">
             <h1 onClick={props.toggle}>X</h1>
             <ul className="menu-list">
-                {species.map((val, idx) => <li key={idx} onClick={sendID} id={idx}>{val.species}</li>)}
+                {species.map((val, idx) => <li key={idx} onClick={onClick} id={idx}>{val.species}</li>)}
             </ul>
         </div>
     )
