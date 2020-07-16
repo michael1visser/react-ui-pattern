@@ -3,7 +3,6 @@ import "./App.css";
 import Menu from './Menu'
 import Item from './Item'
 import hamburger from "./images/hamburger-white.png"
-import { Transition } from 'react-transition-group'
 
 let api = "https://fishbase.ropensci.org/"
 
@@ -28,7 +27,6 @@ class App extends Component {
       this.setState({
         species: res.data
        })
-       //console.log(this.state.species)
     })  
   }
 
@@ -78,9 +76,6 @@ class App extends Component {
   componentDidMount(){
     this.fetchSpecies()
   }
- /*  componentDidUpdate(){
-
-  } */
   
 }
 
