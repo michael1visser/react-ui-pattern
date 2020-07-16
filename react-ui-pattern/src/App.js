@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, isValidElement } from "react";
 import "./App.css";
 import Menu from './Menu'
 import Item from './Item'
@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       species: []
       , menuOpen: false 
-      , onDisplay: 64588
+      , onDisplay: null
     }
   }
 
@@ -27,7 +27,7 @@ class App extends Component {
       this.setState({
         species: res.data
        })
-       console.log(this.state.species)
+       //console.log(this.state.species)
     })  
   }
 
@@ -37,14 +37,23 @@ class App extends Component {
     })
   }
 
-  displaySpecies = (id) => {
+  displaySpecies = (species, id, aquarium, dangerous, comments, genus, subFamily, image) => {
     this.setState({
-      onDisplay: id
+      onDisplay: {
+        species: species
+        , id: id
+        , aquarium: aquarium
+        , dangerous: dangerous
+        , comments: comments
+        , genus: genus
+        , subFamily: subFamily
+        , image: image
+      }
     })
   }
 
   render() {
-    let species = this.state.species.map(val =>{
+ /*    let species = this.state.species.map(val =>{
       return (
           {
               species: val.Species
@@ -52,7 +61,8 @@ class App extends Component {
               
           }
       )
-  })
+  }) */
+  console.log(this.state.species)
 
     return (
       <div className="App">
@@ -64,7 +74,7 @@ class App extends Component {
         <Menu species={this.state.species} callBack={this.displaySpecies} />
         :null}
         {this.state.onDisplay!==null ?
-        <Item id={this.state.onDisplay} api={api}/>
+        <Item species={this.state.onDisplay.species} id={this.state.onDisplay.id} aquarium={this.state.onDisplay.aquarium} dangerous={this.state.onDisplay.dangerous} comments={this.state.onDisplay.comments} genus={this.state.onDisplay.genus} subFamily={this.state.onDisplay.subFamily} image={this.state.onDisplay.image}/>
         :null}
       </div>
     );
@@ -73,6 +83,9 @@ class App extends Component {
   componentDidMount(){
     this.fetchSpecies()
   }
+ /*  componentDidUpdate(){
+
+  } */
   
 }
 

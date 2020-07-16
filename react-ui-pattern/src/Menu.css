@@ -1,16 +1,18 @@
 .Menu {
     margin-top: 0;
     float: right;
-    max-width: 40%;
+    width: 20%;
     background-color: #282c34;
     color: #ffffff;
 }
 
 .menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     font-size: 30px;
-    margin-block-end: 5%;
-    margin-inline-end: 25%;
-    padding-inline-end: 25%;
-    padding-inline-start: 5%;
+    padding-inline-start: none;
     list-style-type: none;
 }

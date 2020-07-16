@@ -8,40 +8,31 @@ import './Menu.css'
             {
                 species: val.Species
                 , id: val.SpecCode
+                , dangerous: val.Dangerous
+                , aquarium: val.Aquarium
+                , genus: val.Genus             
+                , subFamily: val.Subfamily
+                , comments: val.Comments
+                , image: val.image
+                
             }
         )
     })
 
- /* class Menu extends Component {
-     constructor(props){
-         super(props)
-         this.state = {
-             currentId: null
-             , species: this.props.species.map(val =>{
-                return (
-                    {
-                        species: val.Species
-                        , id: val.SpecCode
-                    }
-                )
-            })
-         }
-     } */
-
- 
-
-    //console.log(species)
 
     let sendID = (e) => {
-        //console.log(e.target.id)
+        let index = e.target.id
+        console.log(index)
     //this.state.currentId = e.target.id
-    props.callBack(e.target.id)
+    props.callBack(species[index].species, species[index].id, species[index].aquarium, species[index].dangerous, species[index].comments, species[index].genus, species[index].subFamily, species[index].image)
+
+    console.log(species[index].species)
     }
     //render(){
     return (
         <div className="Menu">
             <ul className="menu-list">
-                {species.map((val, idx) => <li key={idx} onClick={sendID} id={val.id}>{val.species}</li>)}
+                {species.map((val, idx) => <li key={idx} onClick={sendID} id={idx}>{val.species}</li>)}
             </ul>
         </div>
     )
