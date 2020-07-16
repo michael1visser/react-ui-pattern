@@ -1,5 +1,11 @@
-.App {
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+
+  z-index: 1;
 }
 
 
@@ -17,6 +23,7 @@
 
 .hamburger {
   width: 3%;
+  cursor: pointer;
 }
 
 .App-link {

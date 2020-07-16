@@ -22,21 +22,16 @@ import './Menu.css'
 
     let sendID = (e) => {
         let index = e.target.id
-        console.log(index)
-    //this.state.currentId = e.target.id
-    props.callBack(species[index].species, species[index].id, species[index].aquarium, species[index].dangerous, species[index].comments, species[index].genus, species[index].subFamily, species[index].image)
-
-    console.log(species[index].species)
+        props.callBack(species[index].species, species[index].id, species[index].aquarium, species[index].dangerous, species[index].comments, species[index].genus, species[index].subFamily, species[index].image)
     }
-    //render(){
     return (
         <div className="Menu">
+            <h1 onClick={props.toggle}>X</h1>
             <ul className="menu-list">
                 {species.map((val, idx) => <li key={idx} onClick={sendID} id={idx}>{val.species}</li>)}
             </ul>
         </div>
     )
-   // }
 }
 
 export default Menu

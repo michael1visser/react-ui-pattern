@@ -53,29 +53,23 @@ class App extends Component {
   }
 
   render() {
- /*    let species = this.state.species.map(val =>{
-      return (
-          {
-              species: val.Species
-              , id: val.SpecCode
-              
-          }
-      )
-  }) */
-  console.log(this.state.species)
+ 
 
     return (
       <div className="App">
-        <header className="App-header">
+         <header className="App-header">
           <h1>Hamburger menu</h1>
           <img className="hamburger" src={hamburger} alt="menu icon" onClick={this.toggleMenu} />
-        </header>
+        
         {this.state.menuOpen ? 
-        <Menu species={this.state.species} callBack={this.displaySpecies} />
+        <Menu species={this.state.species} callBack={this.displaySpecies} toggle={this.toggleMenu} />
         :null}
-        {this.state.onDisplay!==null ?
-        <Item species={this.state.onDisplay.species} id={this.state.onDisplay.id} aquarium={this.state.onDisplay.aquarium} dangerous={this.state.onDisplay.dangerous} comments={this.state.onDisplay.comments} genus={this.state.onDisplay.genus} subFamily={this.state.onDisplay.subFamily} image={this.state.onDisplay.image}/>
-        :null}
+        </header>
+        <div className="content">
+          {this.state.onDisplay!==null ?
+          <Item species={this.state.onDisplay.species} id={this.state.onDisplay.id} aquarium={this.state.onDisplay.aquarium} dangerous={this.state.onDisplay.dangerous} comments={this.state.onDisplay.comments} genus={this.state.onDisplay.genus} subFamily={this.state.onDisplay.subFamily} image={this.state.onDisplay.image}/>
+          :null}
+        </div>
       </div>
     );
   }

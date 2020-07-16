@@ -1,9 +1,13 @@
 .Menu {
     margin-top: 0;
-    float: right;
+    
     width: 20%;
     background-color: #282c34;
     color: #ffffff;
+    
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .menu-list {
@@ -13,6 +17,14 @@
     align-items: center;
 
     font-size: 30px;
-    padding-inline-start: none;
+    padding-inline-start: 3%;
     list-style-type: none;
+    cursor: pointer;
+}
+
+h1{
+    text-align: right;
+    margin-right: 10%;
+    margin-top: 2%;
+    cursor: pointer;
 }
